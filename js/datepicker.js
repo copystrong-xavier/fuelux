@@ -46,15 +46,16 @@
 
 	//only load moment if it's there. otherwise we'll look for it in window.moment
 	if (typeof define === 'function' && define.amd) {//check if AMD is available
-		require(['moment'], function (amdMoment) {
-			moment = amdMoment;
-			runStack();
-		}, function (err) {
-				var failedId = err.requireModules && err.requireModules[0];
-				if (failedId === 'moment') {
-					runStack();
-				}
-			});
+		// require(['moment'], function (amdMoment) {
+		// 	moment = amdMoment;
+		// 	runStack();
+		// }, function (err) {
+		// 		var failedId = err.requireModules && err.requireModules[0];
+		// 		if (failedId === 'moment') {
+		// 			runStack();
+		// 		}
+		// 	});
+		moment = require('moment');
 	} else {
 		runStack();
 	}
